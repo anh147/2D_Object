@@ -29,6 +29,24 @@ for idx, fname in enumerate(images):
         #cv2.imwrite(write_name, img)
         cv2.imshow('img', img)
         cv2.waitKey(0)
+        cv2.imwrite('image/bg_corners.jpg', img)
     else:
         print("Error")
 cv2.destroyAllWindows()
+
+print("objpoints", objpoints)
+print("imgpoints", imgpoints)
+
+print(np.shape(imgpoints))
+point = np.array(imgpoints)
+point = point.flatten()
+print(np.shape(imgpoints))
+print(imgpoints[0][1][0])
+
+
+img = cv2.imread('image/01.jpg')
+for i in range (0, boardHeight*boardWidth):
+    image = cv2.circle(img, (int(imgpoints[0][i][0][0]), int(imgpoints[0][i][0][1])), radius=0, color=(0, 0, 255), thickness=10)
+
+cv2.imshow('draw', image)
+cv2.waitKey(0)
