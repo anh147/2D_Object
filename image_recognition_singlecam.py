@@ -481,12 +481,12 @@ class image_recognition:
         return crop_img,contour_img,r_width,r_height
 
 
-#imgdir="/home/pi/Desktop/Captures/"
+imgdir=""
 
 #(self,print_status=True, write_images=False,
 #                 image_Path="/home/pi/Desktop/Captures/",testing_Path="/home/pi/Desktop/Captures/",
 #                 preview_images=False,preview_autoclose=True):
         
-#imageRec=image_recognition(True,True,imgdir,imgdir,True,True)
+imageRec=image_recognition(True,True,imgdir,imgdir,True,True)
         
-#imageRec.test_objectDetect("undst_bg","undst_cam")
+imageRec.test_objectDetect("circle","circle")
