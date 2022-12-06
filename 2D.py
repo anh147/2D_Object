@@ -1,7 +1,10 @@
 import cv2
 
 img = cv2.imread('image/03.jpg', cv2.IMREAD_GRAYSCALE)
-img_bg = cv2.imread('image/bg.jpg', cv2.IMREAD_GRAYSCALE)
+img_bg = cv2.imread('image/n_bg.jpg', cv2.IMREAD_GRAYSCALE)
+
+cv2.imshow("draw",im_bw -  im_bw_bg )
+cv2.waitKey(0)
 
 thresh = 150
 im_bw = cv2.threshold(img, thresh, 255, cv2.THRESH_BINARY)[1]

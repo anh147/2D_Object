@@ -3,7 +3,7 @@ import numpy as np
 import glob
 import matplotlib.pyplot as plt
 import cv2
-boardHeight = 13
+boardHeight = 12
 boardWidth = 7
 # Prepare object points, like (0,0,0), (1,0,0), (2,0,0) ....,(6,5,0)
 objp = np.zeros((boardHeight*boardWidth,3), np.float32)
@@ -12,7 +12,7 @@ objp[:,:2] = np.mgrid[0:boardWidth, 0:boardHeight].T.reshape(-1,2)
 objpoints = [] # 3d points in real world space
 imgpoints = [] # 2d points in image plane.
 # Make a list of calibration images
-images = glob.glob('image/bg.jpg')
+images = glob.glob('image/bg02.jpg')
 # Step through the list and search for chessboard corners
 for idx, fname in enumerate(images):
     img = cv2.imread(fname)
@@ -29,7 +29,7 @@ for idx, fname in enumerate(images):
         #cv2.imwrite(write_name, img)
         cv2.imshow('img', img)
         cv2.waitKey(0)
-        cv2.imwrite('image/bg_corners.jpg', img)
+        cv2.imwrite('image/n_bg_corners.jpg', img)
     else:
         print("Error")
 cv2.destroyAllWindows()
@@ -44,7 +44,7 @@ print(np.shape(imgpoints))
 print(imgpoints[0][1][0])
 
 
-img = cv2.imread('image/01.jpg')
+img = cv2.imread('image/n_01.jpg')
 for i in range (0, boardHeight*boardWidth):
     image = cv2.circle(img, (int(imgpoints[0][i][0][0]), int(imgpoints[0][i][0][1])), radius=0, color=(0, 0, 255), thickness=10)
 
