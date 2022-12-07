@@ -12,7 +12,7 @@ objp[:,:2] = np.mgrid[0:boardWidth, 0:boardHeight].T.reshape(-1,2)
 objpoints = [] # 3d points in real world space
 imgpoints = [] # 2d points in image plane.
 # Make a list of calibration images
-images = glob.glob('image/bg02.jpg')
+images = glob.glob('image3/bg.jpg')
 # Step through the list and search for chessboard corners
 for idx, fname in enumerate(images):
     img = cv2.imread(fname)
@@ -44,7 +44,7 @@ print(np.shape(imgpoints))
 print(imgpoints[0][1][0])
 
 
-img = cv2.imread('image/n_01.jpg')
+img = cv2.imread('image3/00.jpg')
 for i in range (0, boardHeight*boardWidth):
     image = cv2.circle(img, (int(imgpoints[0][i][0][0]), int(imgpoints[0][i][0][1])), radius=0, color=(0, 0, 255), thickness=10)
 
